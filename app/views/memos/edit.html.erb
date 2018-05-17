@@ -1,0 +1,11 @@
+<%= form_for :memo, url: memo_path, method: :patch do |f| %>
+	<p>
+	    <%= f.label :writer %><br>
+	    <%= f.text_field :writer %>
+	</p>
+	<p>
+		<%= f.label :content %><br>
+		<%= f.text_area :content %>
+	</p>
+	<%= f.submit %>
+<% end %>

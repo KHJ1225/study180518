@@ -1,17 +1,23 @@
-<h1>New Article</h1>
+<header>
+    <div class="container">
+        <div style="height: 120px; background-color: #FFDC7E; padding-left:50px;" class="d-flex align-items-center">글쓰기</div>
+    </div>
+</header>
 
-<%= form_for :article, url: articles_path do |f| %>
-    <p>
-        <%= f.label :title %><br>
-        <%= f.text_field :title %>
-    </p>
-    
-    <p>
-        <%= f.label :content %><br>
-        <%= f.text_field :content %>
-    </p>
-    
-    <p><%= f.submit %></p>
-<% end %>
+<div class="container mt-4 px-5" style="width: 60%;">
+    <%= form_for :article, url: articles_path do |f| %>
+        <p>
+            <%= f.label :title %><br>
+            <%= f.text_field :title , class: 'form-control' %>
+        </p>
+        
+        <p>
+            <%= f.label :content %><br>
+            <%= f.text_area(:content, size: "20x10", class: 'form-control') %>
+        </p>
+        
+        <p><%= f.submit'등록', class: 'btn btn-outline-warning' %></p>
+    <% end %>
+</div>
 
 

@@ -1,0 +1,40 @@
+<header>
+    <div class="container">
+        <div style="height: 120px; background-color: #FFDC7E; padding-left:50px;" class="d-flex align-items-center">방명록</div>
+    </div>
+</header>
+
+<div class="container mt-4 px-5" style="width: 60%;">
+    <%= form_for :memo, url: memos_path do |f| %>
+    	<p>
+    	    <%= f.label :writer, '작성자' %>
+    	    <%= f.text_field :writer, class: 'form-control' %>
+    	</p>
+    	<p>
+    		<%= f.label :content, '내용' %>
+    		<%= f.text_area(:content, size: "20x5", class: 'form-control') %>
+    	</p>
+    	<p style="text-align: right;"><%= f.submit '등록', class: 'btn btn-outline-warning' %></p>
+    <% end %>
+</div>
+    
+<div class="container mt-4 px-5" style="width: 60%; margin-bottom:100px;">
+    <% @memos.each do |memo| %>
+        <hr/>
+        <div class="card">
+            <div class="card-header">작성자 : <%= memo.writer %></div>
+            <div class="card-body">
+                <p><%= memo.content %></p>
+                <div style="text-align: right;">
+                    <%= link_to edit_memo_path(memo) do %>
+                        <button type="button" class="btn btn-outline-warning">수정</button>
+                    <%end%>
+                    <%= link_to  memo_path(memo), method: :delete do %>
+                        <button type="button" class="btn btn-outline-warning">삭제</button>
+                    <%end%>
+                </div>
+          </div>
+       </div>
+    <% end %>
+</div>
+
