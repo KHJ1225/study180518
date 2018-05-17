@@ -19,7 +19,7 @@ class MemosController < ApplicationController
     end
     
     def edit
-        @article = Article.find(params[:id])
+        @memo = Memo.find(params[:id])
     end
     
     def update
